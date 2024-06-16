@@ -51,10 +51,10 @@ export const HouseCheckoutPage = () => {
             const loadedBook: HouseModel = {
                 id: responseJson.id,
                 title: responseJson.title,
-                author: responseJson.author,
+                landLord: responseJson.landLord,
                 description: responseJson.description,
-                copies: responseJson.copies,
-                copiesAvailable: responseJson.copiesAvailable,
+                viewingSlots: responseJson.viewingSlots,
+                viewingSlotsAvailable: responseJson.viewingSlotsAvailable,
                 category: responseJson.category,
                 img: responseJson.img,
             };
@@ -267,7 +267,7 @@ export const HouseCheckoutPage = () => {
                     <div className='col-4 col-md-4 container'>
                         <div className='ml-2'>
                             <h2>{house?.title}</h2>
-                            <h5 className='text-primary'>{house?.author}</h5>
+                            <h5 className='text-primary'>{house?.landLord}</h5>
                             <p className='lead'>{house?.description}</p>
                             <StarsReview rating={totalStars} size={32} />
                         </div>
@@ -293,7 +293,7 @@ export const HouseCheckoutPage = () => {
                 <div className='mt-4'>
                     <div className='ml-2'>
                         <h2>{house?.title}</h2>
-                        <h5 className='text-primary'>{house?.author}</h5>
+                        <h5 className='text-primary'>{house?.landLord}</h5>
                         <p className='lead'>{house?.description}</p>
                         <StarsReview rating={totalStars} size={32} />
                     </div>

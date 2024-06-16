@@ -23,6 +23,28 @@ public class AdminController {
         this.adminService = adminService;
     }
 
+    @PutMapping("/secure/increase/house/quantity")
+    public void increaseHouseQuantity(@RequestHeader(value="Authorization") String token,
+                                     @RequestParam Long houseId) throws Exception {
+        String admin = ExtractJwt.payloadJWTExtraction(token, "\"userType\"");
+        if (admin == null || !admin.equals("admin")) {
+            throw new Exception("Administration page only");
+        }
+        adminService.increaseHouseQuantity(houseId);
+    }
+
+
+    @PutMapping("/secure/decrease/house/quantity")
+    public void decreaseHouseQuantity(@RequestHeader(value="Authorization") String token,
+                                     @RequestParam Long houseId) throws Exception {
+        String admin = ExtractJwt.payloadJWTExtraction(token, "\"userType\"");
+        if (admin == null || !admin.equals("admin")) {
+            throw new Exception("Administration page only");
+        }
+        adminService.decreaseHouseQuantity(houseId);
+    }
+
+
     @PostMapping("/secure/add/house")
     public void postHouse(@RequestHeader(value="Authorization") String token,
                          @RequestBody AddHouseRequest addHouseRequest) throws Exception {
@@ -31,6 +53,16 @@ public class AdminController {
             throw new Exception("Administration page only");
         }
         adminService.postHouse(addHouseRequest);
+    }
+
+    @DeleteMapping("/secure/delete/house")
+    public void deleteHouse(@RequestHeader(value="Authorization") String token,
+                           @RequestParam Long houseId) throws Exception {
+        String admin = ExtractJwt.payloadJWTExtraction(token, "\"userType\"");
+        if (admin == null || !admin.equals("admin")) {
+            throw new Exception("Administration page only");
+        }
+        adminService.deleteHouse(houseId);
     }
 }
 

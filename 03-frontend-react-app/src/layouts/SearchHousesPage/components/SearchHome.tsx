@@ -41,7 +41,7 @@ export const SearchHome: React.FC<{ house: HouseModel }> = (props) => {
                 <div className='col-md-6'>
                     <div className='card-body'>
                         <h5 className='card-title'>
-                            {props.house.author}
+                            {props.house.landLord}
                         </h5>
                         <h4>
                             {props.house.title}

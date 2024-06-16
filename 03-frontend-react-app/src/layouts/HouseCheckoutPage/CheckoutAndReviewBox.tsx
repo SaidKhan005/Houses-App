@@ -12,11 +12,11 @@ export const CheckoutAndReviewBox: React.FC<{
     function buttonRender() {
         if (props.isAuthenticated) {
             if (!props.isCheckedOut && props.currentLoansCount < 5) {
-                return (<button onClick={() => props.checkOutHouse()} className='btn btn-success btn-lg'>Checkout</button>)
+                return (<button onClick={() => props.checkOutHouse()} className='btn btn-success btn-lg'>Book Viewing</button>)
             } else if (props.isCheckedOut) {
-                return (<p><b>House checked out. Enjoy!</b></p>)
+                return (<p><b>House Booked. Enjoy!</b></p>)
             } else if (!props.isCheckedOut) {
-                return (<p className='text-danger'>Too many Houses checked out.</p>)
+                return (<p className='text-danger'>Too many Houses booked.</p>)
             }
         }
         return (<Link to={'/login'} className='btn btn-success btn-lg'>Sign in</Link>)
@@ -53,7 +53,7 @@ export const CheckoutAndReviewBox: React.FC<{
                         Houses Reserved for viewing
                     </p>
                     <hr />
-                    {props.house && props.house.copiesAvailable && props.house.copiesAvailable > 0 ?
+                    {props.house && props.house.viewingSlotsAvailable && props.house.viewingSlotsAvailable > 0 ?
                         <h4 className='text-success'>
                             Available
                         </h4>
@@ -64,11 +64,11 @@ export const CheckoutAndReviewBox: React.FC<{
                     }
                     <div className='row'>
                         <p className='col-6 lead'>
-                            <b>{props.house?.copies} </b>
+                            <b>{props.house?.viewingSlots} </b>
                             Total Slots
                         </p>
                         <p className='col-6 lead'>
-                            <b>{props.house?.copiesAvailable} </b>
+                            <b>{props.house?.viewingSlotsAvailable} </b>
                             Available
                         </p>
                     </div>

@@ -1,4 +1,10 @@
+import { useOktaAuth } from "@okta/okta-react";
+import { Link } from "react-router-dom";
+
 export const Heros = () => {
+
+    const { authState } = useOktaAuth();
+
     return (
         <div>
             <div className='d-none d-lg-block'>
@@ -14,7 +20,12 @@ export const Heros = () => {
                                 Tell us about your living experience/ rental experience,
                                 we would love to hear your feedback about your home owners / home renters and any reccomendations!
                             </p>
-                            <a className='btn main-color btn-lg text-white' href='#'>Sign up</a>
+                            {authState?.isAuthenticated ?
+                                <Link type='button' className='btn main-color btn-lg text-white'
+                                    to='search'>Explore top Houses </Link>
+                                :
+                                <Link className='btn main-color btn-lg text-white' to='/login'>Sign up</Link>
+                            }
                         </div>
                     </div>
                 </div>
@@ -49,11 +60,16 @@ export const Heros = () => {
                                 Tell us about your living experience/ rental experience,
                                 we would love to hear your feedback about your home owners / home renters and any reccomendations!
                             </p>
-                            <a className='btn main-color btn-lg text-white' href='#'>Sign up</a>
+                            {authState?.isAuthenticated ?
+                                <Link type='button' className='btn main-color btn-lg text-white'
+                                    to='search'>Explore top Homes</Link>
+                                :
+                                <Link className='btn main-color btn-lg text-white' to='/login'>Sign up</Link>
+                            }
                         </div>
                     </div>
                     <div className='m-2'>
-                        <div className='col-image-right'></div> 
+                        <div className='col-image-right'></div>
                         <div className='mt-2'>
                             <h1>Our collection is always changing!</h1>
                             <p className='lead'>

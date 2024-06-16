@@ -57,10 +57,10 @@ export const SearchHomesPage = () => {
                 loadedHouses.push({
                     id: responseData[key].id,
                     title: responseData[key].title,
-                    author: responseData[key].author,
+                    landLord: responseData[key].landLord,
                     description: responseData[key].description,
-                    copies: responseData[key].copies,
-                    copiesAvailable: responseData[key].copiesAvailable,
+                    viewingSlots: responseData[key].viewingSlots,
+                    viewingSlotsAvailable: responseData[key].viewingSlotsAvailable,
                     category: responseData[key].category,
                     img: responseData[key].img,
                 });

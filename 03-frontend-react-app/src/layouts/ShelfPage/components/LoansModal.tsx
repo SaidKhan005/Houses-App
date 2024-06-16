@@ -32,7 +32,7 @@ export const LoansModal: React.FC<{ shelfCurrentLoan: ShelfCurrentLoans, mobile:
                                             }
                                         </div>
                                         <div className='col-10'>
-                                            <h6>{props.shelfCurrentLoan.house.author}</h6>
+                                            <h6>{props.shelfCurrentLoan.house.landLord}</h6>
                                             <h4>{props.shelfCurrentLoan.house.title}</h4>
                                         </div>
                                     </div>
