@@ -17,16 +17,16 @@ public class House {
     private String title;
 
     @Column(name = "author")
-    private String author;
+    private String landLord;
 
     @Column(name = "description")
     private String description;
 
     @Column(name = "copies")
-    private int copies;
+    private int viewingSlots;
 
     @Column(name = "copies_available")
-    private int copiesAvailable;
+    private int viewingSlotsAvailable;
 
     @Column(name = "category")
     private String category;

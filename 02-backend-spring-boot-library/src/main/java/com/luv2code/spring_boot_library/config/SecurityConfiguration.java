@@ -19,10 +19,11 @@ public class SecurityConfiguration {
         // Disable Cross Site Request Forgery
         http.csrf().disable();
 
-        // Protect endpoints at /api/<type>/secure
+        // Protect endpoints by verifying tokens at /api/<type>/secure
         http.authorizeRequests(configurer ->
                         configurer
-                                .antMatchers("/api/houses/secure/**")
+                                .antMatchers("/api/houses/secure/**" ,
+                                        "/api/review/secure/**", "/api/messages/secure/**")
                                 .authenticated())
                 .oauth2ResourceServer()
                 .jwt();
